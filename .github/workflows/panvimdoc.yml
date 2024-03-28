@@ -21,3 +21,5 @@ jobs:
           treesitter: true # Use treesitter for highlighting codeblocks
           docmappingprojectname: true # Use project name in tag when writing mapping docs
       - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit-message: auto-generate vimdoc
