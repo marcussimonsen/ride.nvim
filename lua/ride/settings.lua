@@ -24,6 +24,13 @@ local commands = {
         keys = "<space>l-",
         mode = "n",
     },
+    {
+        name = "MakeTable",
+        desc = "Create a Table",
+        func = "make_table",
+        keys = "<space>lt",
+        mode = "n",
+    }
 }
 
 M.settings = DEFAULT_SETTINGS
