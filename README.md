@@ -10,7 +10,7 @@ Install this plugin using your favorite plugin manager.
 
 ### Lazy.nvim
 
-```
+```lua
 {
     "marcussimonsen/ride.nvim",
     opts = {
@@ -25,7 +25,7 @@ This plugin comes with the following default settings.
 
 ### Default settings
 
-```
+```lua
 {
     lazy = true,
     use_default_keymaps = true,
@@ -41,4 +41,5 @@ The following keymaps are used when `use_default_keymaps` is set to `true`.
 |------------------|-------------|
 | Increase heading | `<space>l+` |
 | Decrease heading | `<space>l-` |
+| Make table       | `<space>lt` |
 
