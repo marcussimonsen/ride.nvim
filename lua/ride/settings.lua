@@ -1,12 +1,8 @@
 local M = {}
 
 local DEFAULT_SETTINGS = {
-    ---@type boolean Lazy load the plugin
-    lazy = true,
     ---@type boolean Use the default keymaps
     use_default_keymaps = true,
-    ---@type boolean Use `dot` for repeat action
-    dot_repeat = true,
     ---@type boolean Format tables on exit insert mode
     format_table_on_exit_insert = true,
 }

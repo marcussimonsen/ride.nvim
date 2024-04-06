@@ -27,9 +27,7 @@ This plugin comes with the following default settings.
 
 ```lua
 {
-    lazy = true,
     use_default_keymaps = true,
-    dot_repeat = true,
     format_table_on_exit_insert = true,
 }
 ```
