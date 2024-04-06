@@ -7,6 +7,8 @@ local DEFAULT_SETTINGS = {
     use_default_keymaps = true,
     ---@type boolean Use `dot` for repeat action
     dot_repeat = true,
+    ---@type boolean Format tables on exit insert mode
+    format_table_on_exit_insert = true,
 }
 
 local commands = {
@@ -30,7 +32,14 @@ local commands = {
         func = "make_table",
         keys = "<space>lt",
         mode = "n",
-    }
+    },
+    {
+        name = "FormatTable",
+        desc = "Format a Table",
+        func = "format_table",
+        keys = "<space>lf",
+        mode = "n",
+    },
 }
 
 M.settings = DEFAULT_SETTINGS
@@ -66,6 +75,13 @@ M._create_commands = function()
         vim.api.nvim_create_user_command(cmd.name, function()
             ride[cmd.func]()
         end, { desc = cmd.desc })
+    end
+end
+
+M._create_auto_commands = function()
+    local ride = require("ride")
+    if M.settings.format_table_on_exit_insert then
+        vim.api.nvim_create_autocmd({ "InsertLeave" }, { callback = ride["format_table"] })
     end
 end
 

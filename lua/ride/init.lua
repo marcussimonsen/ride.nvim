@@ -7,6 +7,7 @@ local M = {}
 M.setup = function(opts)
     settings._update_settings(opts)
     settings._create_commands()
+    settings._create_auto_commands()
     settings._set_default_keymaps()
 end
 
@@ -21,7 +22,16 @@ end
 M.make_table = function()
     local input = vim.fn.input("<Columns> <Rows>: ")
     local dimensions = ride_table._parse_input(input)
+    if dimensions == nil then
+        return;
+    end
     ride_table._make_table(dimensions.cols, dimensions.rows)
+end
+
+M.format_table = function()
+    if ride_table._inside_table() then
+        ride_table._format_table()
+    end
 end
 
 return M
