@@ -34,4 +34,16 @@ M.format_table = function()
     end
 end
 
+M.prepend_row = function()
+    if ride_table._inside_table() then
+        ride_table._prepend_row()
+    end
+end
+
+M.append_row = function()
+    if ride_table._inside_table() then
+        ride_table._append_row()
+    end
+end
+
 return M

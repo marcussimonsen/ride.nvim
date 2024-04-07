@@ -42,6 +42,8 @@ The following keymaps are used when `use_default_keymaps` is set to `true`.
 | Decrease heading | `<space>l-` |
 | Make table       | `<space>lt` |
 | Format table     | `<space>lf` |
+| Prepend a row    | `<space>lR` |
+| Append a row     | `<space>lr` |
 
 ## API
 
@@ -53,4 +55,6 @@ ride.nvim exposes the following API:
 - Tables:
     - `make_table`: Creates an empty table with the given dimensions.
     - `format_table`: Formats the table under the cursor.
+    - `prepend_row`: Prepends a row to the table under the cursor.
+    - `append_row`: Appends a row to the table under the cursor.
 

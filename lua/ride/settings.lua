@@ -36,6 +36,20 @@ local commands = {
         keys = "<space>lf",
         mode = "n",
     },
+    {
+        name = "PrependRow",
+        desc = "Prepend a Row",
+        func = "prepend_row",
+        keys = "<space>lR",
+        mode = "n",
+    },
+    {
+        name = "AppendRow",
+        desc = "Append a Row",
+        func = "append_row",
+        keys = "<space>lr",
+        mode = "n",
+    },
 }
 
 M.settings = DEFAULT_SETTINGS
