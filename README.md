@@ -36,14 +36,18 @@ This plugin comes with the following default settings.
 
 The following keymaps are used when `use_default_keymaps` is set to `true`.
 
-| Function         | Keymap      |
-|------------------|-------------|
-| Increase heading | `<space>l+` |
-| Decrease heading | `<space>l-` |
-| Make table       | `<space>lt` |
-| Format table     | `<space>lf` |
-| Prepend a row    | `<space>lR` |
-| Append a row     | `<space>lr` |
+| Function                       | Keymap      |
+|--------------------------------|-------------|
+| Increase heading               | `<space>l+` |
+| Decrease heading               | `<space>l-` |
+| Make table                     | `<space>lt` |
+| Format table                   | `<space>lf` |
+| Prepend a row                  | `<space>lR` |
+| Append a row                   | `<space>lr` |
+| Make check list                | `<space>lc` |
+| Toggle current check list line | `<space>lg` |
+| Prepend check list row         | `<space>lu` |
+| Append check list row          | `<space>li` |
 
 ## API
 
@@ -57,4 +61,10 @@ ride.nvim exposes the following API:
     - `format_table`: Formats the table under the cursor.
     - `prepend_row`: Prepends a row to the table under the cursor.
     - `append_row`: Appends a row to the table under the cursor.
+- Lists:
+    - Check Lists:
+        - `make_check_list`: Creates an empty check list of given size.
+        - `toggle_check_list`: Toggles the checkbox on the current line.
+        - `prepend_check_line`: Prepends a checklist line to the current line.
+        - `append_check_line`: Appends a checklist line to the current line.
 
