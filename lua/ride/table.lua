@@ -9,14 +9,14 @@ local function make_array(size, fill)
 end
 
 M._parse_input = function(s)
-    local cols_start, cols_end = string.find(s, "^%d+")
-    local rows_start, rows_end = string.find(s, "%d+$")
+    local cols_start, cols_end = s:find("^%d+")
+    local rows_start, rows_end = s:find("%d+$")
     if cols_start == nil or cols_end == nil or rows_start == nil or rows_end == nil then
         vim.notify("Could not parse input", vim.log.levels.ERROR)
         return;
     end
-    local cols = string.sub(s, cols_start, cols_end)
-    local rows = string.sub(s, rows_start, rows_end)
+    local cols = s:sub(cols_start, cols_end)
+    local rows = s:sub(rows_start, rows_end)
     return {
         cols = tonumber(cols),
         rows = tonumber(rows),
@@ -57,7 +57,7 @@ M._make_table = function(cols, rows)
 end
 
 local function is_table(s)
-    return string.match(s, "^|.*|$")
+    return s:match("^|.*|$")
 end
 
 M._inside_table = function()
@@ -84,9 +84,9 @@ end
 local function remove_until(lines, pattern)
     local new_lines = {}
     for i, line in ipairs(lines) do
-        local idx_start, idx_end = string.find(line, pattern)
+        local idx_start, idx_end = line:find(pattern)
         if idx_start == nil or idx_end == nil then return {} end
-        new_lines[i] = string.sub(line, idx_end + 1)
+        new_lines[i] = line:sub(idx_end + 1)
     end
     return new_lines
 end
@@ -113,9 +113,9 @@ local function extract_content(lines)
             if y == 2 then
                 goto continue
             end
-            local content_end, _ = string.find(line, "%s*|")
+            local content_end, _ = line:find("%s*|")
             content_end = content_end - 1
-            local _, _, content = string.find(string.sub(line, 1, content_end), "%s*(.*)")
+            local _, _, content = line:sub(1, content_end):find("%s*(.*)")
             contents[y][x] = content
             ::continue::
         end
@@ -183,7 +183,7 @@ local function count_columns(line)
 
     while i < #line do
         i = i + 1
-        local start, _ = string.find(line, "|", i)
+        local start, _ = line:find("|", i)
         i = start
         columns = columns + 1
     end

@@ -8,7 +8,7 @@ M._increase_heading_level = function()
 
     -- Modify line
     -- If line is not already a header, add space
-    if string.sub(line, 1, 1) ~= "#" then
+    if line:sub(1, 1) ~= "#" then
         line = " " .. line
     end
     -- Add a '#' to start of line
@@ -26,10 +26,10 @@ M._decrease_heading_level = function()
 
     -- Modify line
     -- If H1, remove space as well
-    if string.sub(line, 1, 2) == "# " then
-        line = string.sub(line, 3)
-    elseif string.sub(line, 1, 1) == "#" then
-        line = string.sub(line, 2)
+    if line:sub(1, 2) == "# " then
+        line = line:sub(3)
+    elseif line:sub(1, 1) == "#" then
+        line = line:sub(2)
     else
         vim.notify("Line is not a header", vim.log.levels.ERROR)
     end

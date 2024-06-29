@@ -5,7 +5,7 @@ local build_check_line = function()
 end
 
 local is_check_list = function(s)
-    return string.match(s, "^- %[[x ]%]")
+    return s:match("^- %[[x ]%]")
 end
 
 M._in_check_list = function()
@@ -13,14 +13,14 @@ M._in_check_list = function()
 end
 
 M._parse_input = function(s)
-    local lines_start, lines_end = string.find(s, "%d+")
+    local lines_start, lines_end = s:find("%d+")
 
     if lines_start == nil or lines_end == nil then
         vim.notify("Could not parse input", vim.log.levels.ERROR)
         return
     end
 
-    local lines_str = string.sub(s, lines_start, lines_end)
+    local lines_str = s:sub(lines_start, lines_end)
     return tonumber(lines_str)
 end
 
@@ -33,7 +33,7 @@ M._make_check_list = function(lines)
     end
 
     -- Write list to buffer
-    vim.api.nvim_paste(table.concat(l, "\r"), true, -1)
+    vim.api.nvim_paste(l:concat("\r"), true, -1)
 end
 
 M._toggle_check_list = function()
